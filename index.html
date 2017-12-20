@@ -11,7 +11,11 @@
 <body>
 	<header id="masthead">
 		<div class="container">
-			<h1><img src="/Users/haigbedros/dev/TriviaGame/assets/images/gr.png" width="40"/>The Chamber Of Secrets<img src="/Users/haigbedros/dev/TriviaGame/assets/images/gr.png" width="40"/></h1>
+            <div class="row">
+            <div class="col-lg-2">
+            <h1><img src="assets/images/gr.png" width="40"/>The Chamber Of Secrets<img src="assets/images/gr.png" width="40"/></h1>
+            </div>
+            </div>
 		</div>
 	</header>
 	<div id="main-container" class="container">
@@ -19,12 +23,12 @@
 			<h1 class="rules">The Rules</h1>
 			<p class="rules">There are 5 questions, you have 50 seconds to answer all 5 questions.</p>
 			<h2>
-				<button type="button" id="start-button"><img src="/Users/haigbedros/dev/TriviaGame/assets/images/wand.png" height="12"/>Start</button>
+				<button type="button" id="start-button"><img src="assets/images/wand.png" height="12"/>Start</button>
             </h2>
             <!-- start of audio -->
-            <audio controls autoplay style="display:none">
-                <source src="/Users/haigbedros/dev/TriviaGame/assets/audio/hp-theme.mp3" type="audio/ogg">
-                <source src="/Users/haigbedros/dev/TriviaGame/assets/audio/hp-theme.mp3" type="audio/mpeg">
+            <audio controls autoplay class="player_audio" id="buzzer" >
+                <source src="assets/audio/hp-theme.mp3" type="audio/ogg">
+                <source src="assets/audio/hp-theme.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
 			<!-- timer will be displayed in div#show-number-->
@@ -38,7 +42,7 @@
 			<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">Horace Slughorn, Molly Weasley</label><br/>
 			</ul>
 			<!-- question 2 -->
-			<p class="question">2. What is the name of the vicious tree that Harry and Ron drove into in 'Harry Potter and the Chamber of Secrets'?</p>
+			<p class="question">2. What is the name of the vicious tree that Harry and Ron drove into?</p>
 			<ul class="answers">
 			<input type="radio" name="q2" value="a" id="q2a"><label for="q2a">The Whomping Cedar</label><br/>
 			<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">The Whomping Pine</label><br/>

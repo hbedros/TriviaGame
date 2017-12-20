@@ -39,12 +39,14 @@ ul{
     color: rgb(129, 28, 28);
     opacity: 0.9;
 }
+
 button{
 	background-color: orange;
 	width: 20%;
 	height: 20px;
 	opacity: 1 !important;
-	margin-top: 30px;
+    
+    margin-top: 30px;
 }
 .question, .answers{
 	width: 50%;
@@ -53,6 +55,15 @@ button{
     text-align: left;
 }
 
+.question {
+    font-size: 20px;
+    font-style: bold;
+	font-weight: bold;
+}
+
+#submit, #results, #restart, .question, .answers, #buzzer {
+	display: none;
+}
 
 .rules{
 	font-size: 20px;
@@ -61,7 +72,7 @@ button{
 }
 /* footer */
 footer{
-
+	clear: both;
 	padding: 20px;
     font-style: bold;
 }
