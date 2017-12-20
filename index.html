@@ -26,62 +26,72 @@
 				<button type="button" id="start-button"><img src="assets/images/wand.png" height="12"/>Start</button>
             </h2>
             <!-- start of audio -->
-            <audio controls autoplay class="player_audio" id="buzzer" >
+            <!-- <audio controls autoplay class="player_audio" id="buzzer" >
                 <source src="assets/audio/hp-theme.mp3" type="audio/ogg">
                 <source src="assets/audio/hp-theme.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
-            </audio>
+            </audio> -->
 			<!-- timer will be displayed in div#show-number-->
 			<div id="show-number"></div>
-			<!-- question 1 -->
-			<p class="question">1. Who are the two half-giants? (Male, Female)</p>
-			<ul class="answers">
-			<input type="radio" name="q1" value="a" id="q1a"><label for="q1a">Hagrid, Madame Maxime</label><br/>
-			<input type="radio" name="q1" value="b" id="q1b"><label for="q1b">Sybill Trelawney, Dobby</label><br/>
-			<input type="radio" name="q1" value="c" id="q1c"><label for="q1c">Ginny Weasley, Gilderoy Lockhart</label><br/>
-			<input type="radio" name="q1" value="d" id="q1d"><label for="q1d">Horace Slughorn, Molly Weasley</label><br/>
-			</ul>
-			<!-- question 2 -->
-			<p class="question">2. What is the name of the vicious tree that Harry and Ron drove into?</p>
-			<ul class="answers">
-			<input type="radio" name="q2" value="a" id="q2a"><label for="q2a">The Whomping Cedar</label><br/>
-			<input type="radio" name="q2" value="b" id="q2b"><label for="q2b">The Whomping Pine</label><br/>
-			<input type="radio" name="q2" value="c" id="q2c"><label for="q2c">The Whomping Willow</label><br/>
-			<input type="radio" name="q2" value="d" id="q2d"><label for="q2d">The Whomping Oak</label><br/>
-			</ul>
-			<!-- question 3 -->
-			<p class="question">3. Who was the Whomping Willow planted for?</p>
-			<ul class="answers">
-			<input type="radio" name="q3" value="a" id="q3a"><label for="q3a">Dolores Umbridge</label><br/>
-			<input type="radio" name="q3" value="b" id="q3b"><label for="q3b">Minerva McGonagall</label><br/>
-			<input type="radio" name="q3" value="c" id="q3c"><label for="q3c">Remus Lupin</label><br/>
-			<input type="radio" name="q3" value="d" id="q3d"><label for="q3d">Horace Slughorn</label><br/>
-			</ul>
-			<!-- question 4 -->
-			<p class="question">4. Who has famous Rock Cakes?</p>
-			<ul class="answers">
-			<input type="radio" name="q4" value="a" id="q4a"><label for="q4a">Malfoy</label><br/>
-			<input type="radio" name="q4" value="b" id="q4b"><label for="q4b">Hagrid</label><br/>
-			<input type="radio" name="q4" value="c" id="q4c"><label for="q4c">Lupin</label><br/>
-			<input type="radio" name="q4" value="d" id="q4d"><label for="q4d">Lovegood</label><br/>
-			</ul>
-			<!-- question 5 -->
-			<p class="question">5. How much was Dobby paid a month in the Hogwarts kitchen?</p>
-			<ul class="answers">
-			<input type="radio" name="q5" value="a" id="q5a"><label for="q5a">Four Galleon</label><br/>
-			<input type="radio" name="q5" value="b" id="q5b"><label for="q5b">three Galleon</label><br/>
-			<input type="radio" name="q5" value="c" id="q5c"><label for="q5c">Two Galleon</label><br/>
-			<input type="radio" name="q5" value="d" id="q5d"><label for="q5d">One Galleon</label><br/>
-			</ul>
+            <!-- question 1 -->
+            <div class="question" correct-answer="a">
+                <p>1. Who are the two half-giants? (Male, Female)</p>
+                <ul class="answers" id="q1"> 
+                    <input type="radio" name="q1" class="q1" value="a" id="q1a">Hagrid, Madame Maxime<br/>
+                    <input type="radio" name="q1" class="q1" value="b" id="q1b">Sybill Trelawney, Dobby<br/>
+                    <input type="radio" name="q1" class="q1" value="c" id="q1c">Ginny Weasley, Gilderoy Lockhart<br/>
+                    <input type="radio" name="q1" class="q1" value="d" id="q1d">Horace Slughorn, Molly Weasley<br/>
+                </ul>
+            </div>
+            <!-- question 2 -->
+            <div class="question" correct-answer="c">
+			    <p>2. What is the name of the vicious tree that Harry and Ron drove into?</p>
+                <ul class="answers" id="q2">
+                    <input type="radio" name="q2" class="q2" value="a" id="q2a">The Whomping Cedar<br/>
+                    <input type="radio" name="q2" class="q2" value="b" id="q2b">The Whomping Pine<br/>
+                    <input type="radio" name="q2" class="q2" value="c" id="q2c">The Whomping Willow<br/>
+                    <input type="radio" name="q2" class="q2" value="d" id="q2d">The Whomping Oak<br/>
+                </ul>
+            </div>
+            <!-- question 3 -->
+            <div class="question" correct-answer="c">
+			    <p>3. Who was the Whomping Willow?</p>
+                <ul class="answers" id="q3">
+                    <input type="radio" name="q3" class="q3" value="a" id="q3a">Dolores Umbridge<br/>
+                    <input type="radio" name="q3" class="q3" value="b" id="q3b">Minerva McGonagall<br/>
+                    <input type="radio" name="q3" class="q3" value="c" id="q3c">Remus Lupin<br/>
+                    <input type="radio" name="q3" class="q3" value="d" id="q3d">Horace Slughorn<br/>
+                </ul>
+            </div>
+            <!-- question 4 -->
+            <div class="question" correct-answer="b">
+			    <p>4. Who has famous Rock Cakes?</p>
+                <ul class="answers" id="q4">
+                    <input type="radio" name="q4" class="q4" value="a" id="q4a">Malfoy<br/>
+                    <input type="radio" name="q4" class="q4" value="b" id="q4b">Hagrid<br/>
+                    <input type="radio" name="q4" class="q4" value="c" id="q4c">Lupin<br/>
+                    <input type="radio" name="q4" class="q4" value="d" id="q4d">Lovegood<br/>
+                </ul>
+            </div>
+            <!-- question 5 -->
+            <div class="question" correct-answer="d"> 
+                <p>5. How much was Dobby paid a month in the Hogwarts kitchen?</p>
+                <ul class="answers" id="q5">
+                    <input type="radio" name="q5" class="q5" value="a" id="q5a">Four Galleon<br/>
+                    <input type="radio" name="q5" class="q5" value="b" id="q5b">three Galleon<br/>
+                    <input type="radio" name="q5" class="q5" value="c" id="q5c">Two Galleon<br/>
+                    <input type="radio" name="q5" class="q5" value="d" id="q5d">One Galleon<br/>
+                </ul>
+            </div>  
 			<!-- Hidden Buttons and Elements -->
 			<!-- Submit Button -->
             <button type="button" id="submit">Submit Final Answers</button>
 			<!-- Results -->
 			<div id="results">
 			Show me the answers!
-				<!-- <div id="category1">
-				<p><strong>Question 1:</strong> The correct answer is the <strong>Answer 1</strong>.</p>
-				</div> -->
+				<div id="category1">
+				<p><strong>Question 1: The correct answer is the <strong>Answer 1</strong>.</p>
+				</div>
 			</div>
 			<button type="button" id="restart">Play Again</button>
 		</section>
@@ -94,6 +104,5 @@
 	<!-- JavaScript File & jQuery Lib -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
-	<script type="text/javascript" src="/js/questions.js"></script>
 </body>
 </html>

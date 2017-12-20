@@ -1,9 +1,13 @@
+var answeredCorrectly = 0;
+var answeredIncorrectly = 0;
+
 $(document).ready(function(){
     $("#start-button").click(function(){
   // ----------------------------------------------------------------
    // declaring the value for the timer to 50 seconds
    // hide the start button and rules
         var number = 50;
+
       $("#start-button").on("click", start);  // starts the games 
       $("#submit").on("click", finish);  // submits answers and finishes the game
       $("#restart").on("click", restart);  // restarts the games 
@@ -78,4 +82,46 @@ $(document).ready(function(){
         start(); // calls the start function
     });
   });
+
+  
+  //function to loop through the answers for each question and check which radio button is selected
+  //compare the selective radio button with the collect answer
+  //if the user guesses correctly add one point to the user score, global var to contain the score and show the correct answer
+  //if the user guesses incorrectly add one point to the losses score, global var to contain the score and show the wrong answer
+  
+  $("#submit").click(function(){
+    $(".question").each(function(){
+        // console.log(this);
+    
+        var correctAnswer = $(this).attr("correct-answer");
+        console.log(correctAnswer);
+
+
+    var currentListId = $(this).children("ul").attr("id");
+    console.log(currentListId);
+    currentListId = "#" + currentListId;
+
+    $(currentListId).children("input").each(function(){
+        console.log(this);
+
+    var radioChecked = $(this).prop('checked');    
+    console.log(radioChecked);
+
+    if (radioChecked) {
+       var userAnswer = $(this).attr("value");
+        
+       if (userAnswer === correctAnswer){
+        answeredCorrectly++;
+       }else {
+           answeredIncorrectly++;
+       }
+    }
+    console.log(answeredCorrectly);
+    console.log(answeredIncorrectly);
+
+        });
+    });
+});
+  
+  
   
