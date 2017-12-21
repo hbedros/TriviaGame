@@ -41,35 +41,45 @@ $(document).ready(function(){
       }
 
       
-
+      //timer starts
       function timer(){
           
         number-- // decrements the timer by 1
         $("#show-number").html("<h2>" + number +  " " + "Seconds Left"+ "</h2>" );
         if (number === 0){
-            alert("Times Up!")
             stop(); // calls the stop function
+            alert("Times Up!")
         }
         
       }
 
+      // stops the timer
       function stop(){
-        clearInterval(counter); // stops the timer
+        clearInterval(counter); 
         $("#results").show();
         $("#restart").show();
         $(".question").hide();
         $(".answers").hide();
         $("#submit").hide();
       }
+
       function finish(){
           number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
           clearInterval(counter); // stops the timer
           timer();
+          
+          Audio.pause(initAudioPlayer);
+
       }
   
       function restart(){
           number = 50;
           start();
+          answeredCorrectly = 0;
+          answeredIncorrectly = 0;
+
+          $(".win-count").text(answeredCorrectly);
+          $(".lose-count").text(answeredIncorrectly);
       }
   
       function hideMe(e) {
@@ -119,13 +129,15 @@ $(document).ready(function(){
         answeredIncorrectly++;
 
        }
+       console.log(answeredCorrectly);
+       console.log(answeredIncorrectly);
+
+       $(".win-count").text(answeredCorrectly);
+       $(".lose-count").text(answeredIncorrectly);
     }
-    console.log(answeredCorrectly);
-    console.log(answeredIncorrectly);
 
 
-    $(".win-count").text(answeredCorrectly);
-    $(".lose-count").text(answeredIncorrectly);
+    
 
         });
     });
