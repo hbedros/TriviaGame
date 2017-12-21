@@ -13,19 +13,11 @@ $(document).ready(function(){
       $("#restart").on("click", restart);  // restarts the games 
   // ----------------------------------------------------------------
 
-//   var audio, playbtn;
-//   function initAudioPlayer(){
-//     audio = new Audio ();
-//     audio.src = "assets/audio/hp-theme.mp3";
-//     audio.loop = true;
-//     audio.play();
-//     // set object references
-//     playbtn = document.getElementById("")
-//   }
-//   window.addEventListener("load", initAudioPlayer)
+
 
 // functions
       function start(){
+          initAudioPlayer()
           counter = setInterval(timer, 1000);
           showMe(".question");
           showMe(".answers");
@@ -34,7 +26,18 @@ $(document).ready(function(){
           hideMe(".rules");
           hideMe("#restart");
           hideMe("#results");
-         
+
+          var audio, playbtn;
+          function initAudioPlayer(){
+            audio = new Audio ();
+            audio.src = "assets/audio/hp-theme.mp3";
+            audio.loop = true;
+            audio.play();
+            // set object references
+            playbtn = document.getElementById("")
+          }
+          window.addEventListener("load", initAudioPlayer)
+        
       }
 
       
@@ -42,22 +45,21 @@ $(document).ready(function(){
       function timer(){
           
         number-- // decrements the timer by 1
-        $("#show-number").html("<h2>" + number + "</h2>" );
+        $("#show-number").html("<h2>" + number +  " " + "Seconds Left"+ "</h2>" );
         if (number === 0){
-          alert("Times Up!")
-          stop(); // calls the stop function
+            alert("Times Up!")
+            stop(); // calls the stop function
         }
         
       }
 
       function stop(){
-          clearInterval(counter); // stops the timer
-          $("#results").show();
-          $("#restart").show();
-          $(".question").hide();
-          $(".answers").hide();
-          $("#submit").hide();
-
+        clearInterval(counter); // stops the timer
+        $("#results").show();
+        $("#restart").show();
+        $(".question").hide();
+        $(".answers").hide();
+        $("#submit").hide();
       }
       function finish(){
           number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
@@ -112,12 +114,18 @@ $(document).ready(function(){
         
        if (userAnswer === correctAnswer){
         answeredCorrectly++;
+
        }else {
-           answeredIncorrectly++;
+        answeredIncorrectly++;
+
        }
     }
     console.log(answeredCorrectly);
     console.log(answeredIncorrectly);
+
+
+    $(".win-count").text(answeredCorrectly);
+    $(".lose-count").text(answeredIncorrectly);
 
         });
     });
