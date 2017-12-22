@@ -3,10 +3,16 @@ var answeredIncorrectly = 0;
 
 $(document).ready(function(){
     $("#start-button").click(function(){
+
+        $(".q1").prop('checked', false);
+        $(".q2").prop('checked', false);
+        $(".q3").prop('checked', false);
+        $(".q4").prop('checked', false);
+        $(".q5").prop('checked', false);
   // ----------------------------------------------------------------
-   // declaring the value for the timer to 50 seconds
+   // declaring the value for the timer to 3 seconds
    // hide the start button and rules
-        var number = 50;
+        var number = 3;
 
       $("#start-button").on("click", start);  // starts the games 
       $("#submit").on("click", finish);  // submits answers and finishes the game
@@ -17,8 +23,9 @@ $(document).ready(function(){
 
 // functions
       function start(){
-          initAudioPlayer()
+        //   initAudioPlayer()
           counter = setInterval(timer, 1000);
+          showMe("#show-number");
           showMe(".question");
           showMe(".answers");
           showMe("#submit");
@@ -27,16 +34,17 @@ $(document).ready(function(){
           hideMe("#restart");
           hideMe("#results");
 
-          var audio, playbtn;
-          function initAudioPlayer(){
-            audio = new Audio ();
-            audio.src = "assets/audio/hp-theme.mp3";
-            audio.loop = true;
-            audio.play();
-            // set object references
-            playbtn = document.getElementById("")
-          }
-          window.addEventListener("load", initAudioPlayer)
+
+        //   var audio, playbtn;
+        //   function initAudioPlayer(){
+        //     audio = new Audio ();
+        //     audio.src = "assets/audio/hp-theme.mp3";
+        //     audio.loop = true;
+        //     audio.play();
+        //     // set object references
+        //     playbtn = document.getElementById("")
+        //   }
+        //   window.addEventListener("load", initAudioPlayer)
         
       }
 
@@ -48,7 +56,9 @@ $(document).ready(function(){
         $("#show-number").html("<h2>" + number +  " " + "Seconds Left"+ "</h2>" );
         if (number === 0){
             stop(); // calls the stop function
-            alert("Times Up!")
+            alert("Times Up!");
+            checkAnswers();
+
         }
         
       }
@@ -61,22 +71,36 @@ $(document).ready(function(){
         $(".question").hide();
         $(".answers").hide();
         $("#submit").hide();
+        $("#show-number").hide();
+        
+        // answeredIncorrectly -= 15;
+        $(".win-count").text(answeredCorrectly);
+        $(".lose-count").text(answeredIncorrectly);
       }
 
       function finish(){
           number = 1; // if number is equal to 0 number will show -1 so 1 has to be selected
           clearInterval(counter); // stops the timer
-          timer();
+          checkAnswers();
           
-          Audio.pause(initAudioPlayer);
-
+        $(".win-count").text(answeredCorrectly);
+        $(".lose-count").text(answeredIncorrectly);
+        //   timer()
+        stop();
+        
       }
   
       function restart(){
-          number = 50;
+          number = 3;
           start();
           answeredCorrectly = 0;
           answeredIncorrectly = 0;
+
+        $(".q1").prop('checked', false);
+        $(".q2").prop('checked', false);
+        $(".q3").prop('checked', false);
+        $(".q4").prop('checked', false);
+        $(".q5").prop('checked', false);
 
           $(".win-count").text(answeredCorrectly);
           $(".lose-count").text(answeredIncorrectly);
@@ -101,47 +125,62 @@ $(document).ready(function(){
   //if the user guesses correctly add one point to the user score, global var to contain the score and show the correct answer
   //if the user guesses incorrectly add one point to the losses score, global var to contain the score and show the wrong answer
   
-  $("#submit").click(function(){
-    $(".question").each(function(){
-        // console.log(this);
-    
-        var correctAnswer = $(this).attr("correct-answer");
-        console.log(correctAnswer);
+  
+  $("#submit").click(checkAnswers);
 
-
-    var currentListId = $(this).children("ul").attr("id");
-    console.log(currentListId);
-    currentListId = "#" + currentListId;
-
-    $(currentListId).children("input").each(function(){
-        console.log(this);
-
-    var radioChecked = $(this).prop('checked');    
-    console.log(radioChecked);
-
-    if (radioChecked) {
-       var userAnswer = $(this).attr("value");
+  function checkAnswers() {
+      console.log('HIT');
+        $(".question").each(function(){
+            // console.log(this);
         
-       if (userAnswer === correctAnswer){
-        answeredCorrectly++;
-
-       }else {
-        answeredIncorrectly++;
-
-       }
-       console.log(answeredCorrectly);
-       console.log(answeredIncorrectly);
-
-       $(".win-count").text(answeredCorrectly);
-       $(".lose-count").text(answeredIncorrectly);
-    }
-
-
+            var correctAnswer = $(this).attr("correct-answer");
+            // console.log(correctAnswer);
     
-
+    
+        var currentListId = $(this).children("ul").attr("id");
+        // console.log(currentListId);
+        currentListId = "#" + currentListId;
+    
+        $(currentListId).children("input").each(function(){
+            // console.log(this);
+    
+        var radioChecked = $(this).prop('checked');    
+        // console.log(radioChecked);
+        var userAnswer = "";
+    
+        if(radioChecked){
+            userAnswer = $(this).attr("value");
+        }
+    
+        if(userAnswer) {
+            answeredCorrectly++;
+            
+        } else{
+            answeredIncorrectly++;
+        }
+    
+        // if (radioChecked) {
+        //    var userAnswer = $(this).attr("value");
+        //    console.log(userAnswer);
+            
+        //    if (userAnswer === correctAnswer){
+        //     answeredCorrectly++;
+        //    } else {
+        //     answeredIncorrectly++;
+        //    }
+        //    console.log(answeredCorrectly);
+        //    console.log(answeredIncorrectly);
+    
+        //    $(".win-count").text(answeredCorrectly);
+        //    $(".lose-count").text(answeredIncorrectly);
+        // }
+    
+    
+        
+    
+            });
         });
-    });
-});
+  }
   
   
   
