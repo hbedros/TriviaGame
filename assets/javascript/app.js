@@ -1,3 +1,4 @@
+//global variables
 var answeredCorrectly = 0;
 var answeredIncorrectly = 0;
 // ----------------------------------------------------------------
@@ -21,28 +22,7 @@ var number = 51;
     $("#restart").on("click", restart);  // restarts the games 
 // ----------------------------------------------------------------
 
-//audio
-//   var audio, playbtn;
 
-//   function initAudioPlayer(){
-//     audio = new Audio ();
-//     audio.src = "assets/audio/hp-theme.mp3";
-//     audio.loop = true;
-//     audio.play();
-//     // set object references
-//     playbtn = document.getElementById("")
-//   }function initAudioStopper(){
-//     audio = new Audio ();
-//     audio.src = "assets/audio/hp-theme.mp3";
-//     audio.loop = false;
-//     audio.pause();
-//     playbtn = document.getElementById("")
-//   }
-
-//   window.addEventListener("load", initAudioPlayer)
-// ----------------------------------------------------------------
-
-// functions
 //the game starts here. Starting the timer and hiding the rules page and showing the Q&A's 
 function start(){
     
