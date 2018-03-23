@@ -1,5 +1,3 @@
-<img src="~/Screen Shot 2018-03-23 at 8.42.22 AM">
-
 # Harry Potter Theme Trivia Game
 Basic Assignment User Story
 
