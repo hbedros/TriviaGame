@@ -1,6 +1,8 @@
 # Harry Potter Theme Trivia Game
 Basic Assignment User Story
 
+<img width="1059" alt="hp" src="https://user-images.githubusercontent.com/30307915/37853725-3416f3a4-2ea5-11e8-89d4-69509138078e.png">
+
 # Game Functionality
   - Created a basic trivia game with multiple choice or true/false options.
   - The player will have a limited time length to finish the game.
