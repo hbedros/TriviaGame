@@ -1,4 +1,4 @@
-# Trivia Game
+# Harry Potter Theme Trivia Game
 Basic Assignment User Story
 
 # Game Functionality
